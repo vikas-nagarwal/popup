@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <title>Document</title>
+    <style>
+      body {
+        margin: auto;
+        height: auto;
+        width: auto;
+      }
+
+      .nav.active {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #ad5858; /* or any other style you want to apply */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* optional */
+        z-index: 1000; /* Ensure it stays on top of other content */
+      }
+
+      ul {
+        column-gap: 15px;
+        margin-right: 160px;
+        margin-top: 10px;
+        float: right;
+        display: inline-flex;
+        padding: 0;
+        /* margin: 0; */
+      }
+      ul li {
+        position: relative;
+        padding: 10px;
+        list-style-type: none;
+      }
+      .dots {
+        top: 42px;
+        left: 0;
+        background: chartreuse;
+        /* padding: 20px; */
+        margin: 0;
+        position: absolute;
+        display: none;
+      }
+
+      .hello:hover .dots {
+        color: black;
+        display: block;
+      }
+      .ulservice_section {
+        display: none;
+        float: left;
+        top: -12px;
+        background-color: chartreuse;
+        margin-left: 112px;
+        position: absolute;
+      }
+      .service_Section:hover .ulservice_section {
+        /* float: left; */
+        display: block;
+        color: black;
+      }
+      .nav {
+        position: fixed;
+        /* background-color: #222; */
+        top: 0;
+        left: 0;
+        right: 0;
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+        height: 60px;
+        background-color: chartreuse;
+      }
+      ul li {
+        font-size: 20px;
+      }
+      ul li:hover {
+        background-color: white;
+        color: blueviolet;
+      }
+      .dataanalysis {
+        display: none;
+      }
+
+      .analysis:hover .dataanalysis {
+        display: block;
+      }
+      .dataanalysis {
+        display: none;
+        float: left;
+        top: -10px;
+        background-color: chartreuse;
+        margin-left: 80px;
+        color: black;
+        position: absolute;
+      }
+      img {
+        margin-top: 25px;
+      }
+      .icon {
+        display: none;
+      }
+
+      @media screen and (max-width: 600px) {
+        .nav .icon {
+          margin-top: 25px;
+          margin-left: -100px;
+          float: right;
+          display: block;
+        }
+        /* .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  } */
+
+        .fa-bars:before {
+          margin-left: -25px;
+          content: "\f0c9";
+        }
+        .nav ul {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .nav .topnav.responsive {
+          position: relative;
+        }
+        .nav.topnav.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+
+      .popup {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+        padding-top: 60px;
+        animation: fadeIn 0.5s ease-in-out; /* Animation for popup */
+      }
+
+      /* Popup Fade-in Animation */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .popup-content {
+        background-color: #f9f5f5;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 400px;
+        /* position: relative; */
+        text-align: center;
+        border-radius: 10px; /* Rounded corners for the popup */
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      #shopNowButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      #shopNowButton:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <img src="" alt="logo" />
+      <ul class="myLinks" id="myTopnav">
+        <li>Home</li>
+        <li>Service</li>
+        <li class="hello">
+          About
+          <ul class="dots">
+            <li>Home</li>
+            <li>Data</li>
+            <!-- <li class="service_Section"> Service<i class="fa-solid fa-arrow-right"></i></li> -->
+
+            <li class="service_Section">
+              Service <i class="fa-solid fa-arrow-right"></i>
+              <ul class="ulservice_section">
+                <li>Android</li>
+                <li>Software</li>
+                <li>Data</li>
+                <li class="analysis">
+                  Analysis<i class="fa-solid fa-arrow-right"></i>
+                  <ul class="dataanalysis">
+                    <li>Cloud</li>
+                    <li>Computing</li>
+                    <li>Google</li>
+                    <li>Yahoo</li>
+                    <li>Meta</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Testimonial</li>
+          </ul>
+        </li>
+        <li>Contact</li>
+      </ul>
+
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+    <!-- <div id="backgroundAnimation"></div> -->
+
+    <div id="offerPopup" class="popup">
+      <div class="popup-content">
+        <span class="close" id="closePopup">&times;</span>
+        <h2>🎉 Raksha Bandhan Offer 🎉</h2>
+        <a
+          href="https://api.whatsapp.com/send?phone=8952995446&text=Hello%2C%20I'm%20interested%20in%20your%20Raksha%20Bandhan%20offer!%20In%20Codesphere%2C%20you%20are%20always%20welcome!"
+          class="text-foot fw-bold"
+          target="_blank"
+          id="shopNowButton"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <p>
+          Get 20% off on every service! Celebrate Raksha Bandhan with us and
+          enjoy amazing discounts.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        setTimeout(() => {
+          document.getElementById("offerPopup").style.display = "block";
+        }, 2000);
+
+        document.getElementById("closePopup").onclick = function () {
+          document.getElementById("offerPopup").style.display = "none";
+        };
+
+        window.onclick = function (event) {
+          if (event.target == document.getElementById("offerPopup")) {
+            document.getElementById("offerPopup").style.display = "none";
+          }
+        };
+
+        document.getElementById("shopNowButton").onclick = function () {
+          alert("Redirecting to our services page...");
+          // Add your redirection logic here
+        };
+      });
+    </script>
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "myLinks") {
+          x.className += " responsive";
+        } else {
+          x.className = "myLinks";
+        }
+      }
+    </script>
+  </body>
+</html>
